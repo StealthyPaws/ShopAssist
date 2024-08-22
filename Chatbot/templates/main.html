@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+    <style>
+        /* Add a class for the special font and color */
+        .special-font {
+            font-family: 'YourSpecialFont', sans-serif;
+            color: #FFD700; /* Another shade of orange (Gold) */
+        }
+
+        /* Apply the special font to the product name */
+        .product-name.special-font {
+            font-size: 24px; /* You can adjust the font size */
+            font-weight: bold;
+            text-decoration: underline;
+            margin-bottom: 10px;
+        }
+
+        /* Apply the special font to the product brand */
+        .product-brand.special-font {
+            font-size: 18px; /* You can adjust the font size */
+            margin-top: 5px; /* Add space above the brand */
+        }
+
+        /* Add styling for the product images */
+        .product-image {
+            max-width: 100%; /* Make sure the image doesn't exceed its container */
+            height: auto; /* Maintain the aspect ratio of the image */
+            margin-bottom: 10px; /* Add space below the image */
+        }
+    </style>
+    <title>Product Dashboard</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Dashboard</h1>
+
+        <form action="/query" method="post">
+            <label for="user_input">Query:</label>
+            <input type="text" name="user_input" id="user_input">
+            <input type="submit" value="Submit">
+        </form>
+
+        <h2>Statistics</h2>
+        <div class="statistics">
+            <!-- Your statistics content here -->
+            <p>Total number of listings: <span>{{ total_listings }}</span></p>
+            <p>Average product price: $<span>{{ avg_price | round(2) }}</span></p>
+            <p>Average ratings of products: <span>{{ avg_ratings | round(2) }}</span></p>
+            <p>Average review count per product: <span>{{ avg_review_count | round(2) }}</span></p>
+            <p>Total number of questions asked: <span>{{ total_questions | round(2) }}</span></p>
+        </div>
+
+        <h2>Top 5 Products</h2>
+        <ul class="top-products">
+            {% for index, product in top_products.iterrows() %}
+                <li>
+                    <a href="{{ url_for('product_details', product_id=product['Id']) }}">
+                        <!-- Updated to use the 'ImageLink' column -->
+                        <img class="product-image" src="{{ product['ImageLink'] }}" alt="{{ product['ProductName'] }}">
+                        <div class="product-info">
+                            <div class="product-name">{{ product['ProductName'] }}</div>
+                            <!-- Add these lines to display additional details -->
+                            <div class="product-details">
+                                <div>Name: {{ product['Name'] }}</div>
+                                <div>Brand: {{ product['Brand'] }}</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>        
+    </div>
+</body>
+</html>

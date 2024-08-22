@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a; /* Black background */
+            color: #ffa500; /* Orange text color */
+            margin: 0;
+            padding: 0;
+        }
+    
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #222; /* Darker gray container background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 15px; /* Rounded corners */
+        }
+    
+        h1 {
+            color: #ffa500; /* Orange header color */
+            text-align: center;
+            font-size: 32px; /* Larger font size */
+            font-family: 'Pacifico', cursive; /* Apply Pacifico font */
+            margin-bottom: 20px; /* Add some space below the heading */
+        }
+    
+        .product-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+    
+        .product-name {
+            font-size: 28px; /* Larger font size for the product name */
+            font-weight: bold;
+            color: #ffa500; /* Orange product name color */
+            text-decoration: underline; /* Underline the product name */
+            margin-bottom: 10px; /* Add space below the product name */
+        }
+    
+        .product-details {
+            margin-top: 20px; /* Increase space between product name and details */
+        }
+    
+        .product-details div {
+            margin-bottom: 15px; /* Add more space between details */
+            font-size: 18px; /* Adjust font size for details */
+            color: #ffcc80; /* Light orange color for details */
+            display: inline-block; /* Display details on the same line */
+            margin-right: 10px; /* Add space between details */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Details</h1>
+        <div class="product-info">
+            <div class="product-name">{{ product_data['ProductName'] }}</div>
+            <div class="product-details">
+                <div>Rating: {{ product_data['Rating'] }}</div>
+                <div>Price: Rs. {{ product_data['Price'] }}</div>
+                <div>Brand: {{ product_data['Brand'] }}</div>
+                <div>Specifications: {{ product_data['Specifications'] }}</div>
+                <!-- Add more details as needed -->
+                
+                <!-- Add the following line to display the product link -->
+                <div>Product Link: <a href="{{ product_data['ProductLink'] }}" target="_blank">View Product</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #333;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #222;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+h1, h2 {
+    color: #FFA500; /* Orange */
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+    color: #FFA500; /* Orange */
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 70%;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #FFA500; /* Orange */
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #FF8C00; /* Darker Orange */
+}
+
+h2 {
+    margin-top: 20px;
+}
+
+/* Styling for the Statistics section */
+.statistics {
+    background-color: #111; /* Dark Gray */
+    border: 1px solid #FFA500; /* Orange */
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: 'Pacifico', cursive; /* Apply Pacifico font */
+}
+
+.statistics p {
+    margin: 10px 0;
+}
+
+.statistics span {
+    font-weight: bold;
+    font-size: 36px; /* Increase font size for fun */
+    color: #FF6347; /* Tomato */
+    display: block;
+}
+
+.statistics .label {
+    font-size: 16px; /* Adjust label font size */
+    color: #888;
+}
+
+/* Add some fun alignment */
+.statistics span,
+.statistics .label {
+    transform: rotate(-5deg); /* Rotate the text */
+    display: inline-block;
+}
+
+/* Add a subtle box shadow for more depth */
+.statistics:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+/* Styling for the Top 5 Products section */
+.top-products {
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: #7d5b1a; /* Orange */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #b6a118; /* Darker Orange */
+}
